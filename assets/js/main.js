@@ -1,6 +1,6 @@
 // Crear una función asincrónica para obtener los posts
-async function obtenerPosts() { // asincronica = simultanea
-    console.log('La función obtenerPosts se está ejecutando');
+async function getPosts() { // asincronica = simultanea
+    console.log('La función getPosts se está ejecutando');
     try { // bloque try codigo que lanza error
         // Realizar un request (consulta) a la API usando async-await
         let respuesta = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -14,11 +14,9 @@ async function obtenerPosts() { // asincronica = simultanea
             elemento.textContent = `Post ID: ${post.id}, Título: ${post.title}, Contenido: ${post.body}`; //interpolacion
             lista.appendChild(elemento); // agrega un elemento hijo a elemento padre
         });
-        document.body.appendChild(lista);
+        document.getElementById('post-data').appendChild(lista);
     } catch (error) { // bloque catch codigo se ejecuta si se produce error
         // Manejar los posibles errores con try-catch
         console.error('Ha ocurrido un error:', error);
     }
 }
-
-
